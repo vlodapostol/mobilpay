@@ -26,11 +26,11 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Adrianbarbos\\Mobilpay\\MobilpayServiceProvider"
+                "Vlodapostol\\Mobilpay\\MobilpayServiceProvider"
             ],
             "aliases": {
                 "Omnipay": "Omnipay\\Omnipay",
-                "Mobilpay": "Adrianbarbos\\Mobilpay\\Mobilpay"
+                "Mobilpay": "Vlodapostol\\Mobilpay\\Mobilpay"
             }
         }
     },
