@@ -19,7 +19,7 @@
     "autoload" : {
         "psr-4": {
             "App\\": "app/",
-            "Adrianbarbos\\Mobilpay\\": "src/"
+            "Vlodapostol\\Mobilpay\\": "src/"
         }
     },
 
