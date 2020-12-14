@@ -12,6 +12,8 @@ trait DataTrait
             'orderId'    => '',
             'amount'     => '',
             'currency'   => config('mobilpay.currency'),
+            'transactionType' => '',
+            'service'    => '',
             'details'    => '',
             'confirmUrl' => config('mobilpay.confirm_url'),
             'returnUrl'  => config('mobilpay.return_url'),
@@ -67,6 +69,28 @@ trait DataTrait
     public function setCurrency($value)
     {
         $this->data['currency'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param $value string
+     * @return $this
+     */
+    public function setTransactionType($value)
+    {
+        $this->data['transactionType'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param $value string
+     * @return $this
+     */
+    public function setService($value)
+    {
+        $this->data['service'] = $value;
 
         return $this;
     }

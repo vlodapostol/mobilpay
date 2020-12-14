@@ -6,26 +6,27 @@ Add topics
 ## Table of Contents
 
 - <a href="#installation">Installation</a>
-    - <a href="#composer">Composer</a>
-    - <a href="#laravel">Laravel</a>
+  - <a href="#composer">Composer</a>
+  - <a href="#laravel">Laravel</a>
 - <a href="#basic-usage">Basic Usage</a>
-    - <a href="#initiating-payment-request">Initiating Payment Request</a>
-    - <a href="#handle-reponse">Handle Reponse</a>
+  - <a href="#initiating-payment-request">Initiating Payment Request</a>
+  - <a href="#handle-reponse">Handle Reponse</a>
 - <a href="#options">Options</a>
-	- <a href="#order-id">Order Id</a>
-	- <a href="#amount">Amount</a>
-	- <a href="#currency">Currency</a>
-	- <a href="#details">Details</a>
-	- <a href="#confirm-url">Confirm Url</a>
-	- <a href="#return-url">Return Url</a>
-	- <a href="#test-mode">Test Mode</a>
-	- <a href="#additional-params"> Additional Params </a>
+  - <a href="#order-id">Order Id</a>
+  - <a href="#amount">Amount</a>
+  - <a href="#currency">Currency</a>
+  - <a href="#details">Details</a>
+  - <a href="#confirm-url">Confirm Url</a>
+  - <a href="#return-url">Return Url</a>
+  - <a href="#test-mode">Test Mode</a>
+  - <a href="#additional-params"> Additional Params </a>
 
 ## Installation
 
 ### Composer
 
 Require the package via composer
+
 ```bash
 composer require adrianbarbos/mobilpay
 ```
@@ -34,9 +35,9 @@ Or add the package to your `composer.json` file.
 
 ```json
 {
-    "require": {
-        "adrianbarbos/mobilpay": "^1.0"
-    }
+  "require": {
+    "adrianbarbos/mobilpay": "^1.0"
+  }
 }
 ```
 
@@ -71,11 +72,9 @@ Publish config.
 php artisan vendor:publish --provider="Adrianbarbos\Mobilpay\MobilpayServiceProvider"
 ```
 
-
 ## Basic Usage
 
 ### Initiating Payment Request
-
 
 ```php
 // controller function
@@ -83,11 +82,12 @@ php artisan vendor:publish --provider="Adrianbarbos\Mobilpay\MobilpayServiceProv
 Mobilpay::setOrderId(1)
         ->setAmount('10.00')
         ->setDetails('Some details')
+        ->setTransactionType('sms') //add this parameter only if you want a transaction using SMS
+        ->setService('your-product-hash') //add this parameter only if you want a transaction using SMS
         ->purchase();
 ```
 
 ### Handle Reponse
-
 
 ```php
 // controller function
@@ -128,7 +128,7 @@ switch($response->getMessage())
         //update DB, SET status = "refunded"
 
         break;
-}	                
+}
 ```
 
 # Options
